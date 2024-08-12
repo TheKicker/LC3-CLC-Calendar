@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+            box-sizing: border-box;
+        }
+
+        body {
+            text-align: left;
+        }
+
+        .calendar {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .day {
+            flex: 1 1 14.28%; /* Each day takes up equal width on desktop */
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            text-align: center;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .day-header {
+            background-color: #757575;
+            color: white;
+            padding: 5px;
+            font-weight: bold;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+
+        .event {
+            color: #000080;
+            font-weight: bold;
+            margin: 5px 0;
+            text-align: left;
+            padding-left: 10px;
+        }
+
+        /* Responsive design for mobile */
+        @media screen and (max-width: 768px) {
+            .calendar {
+                flex-direction: column;
+            }
+
+            .day {
+                flex: 1 1 100%; /* Each day takes full width on mobile */
+                text-align: left;
+                border: none;
+                border-bottom: 1px solid #ddd;
+                margin-bottom: 10px;
+            }
+
+            .day-header {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="calendar">
+        <div class="day">
+            <div class="day-header">Sunday</div>
+            <div id="sunday-events"></div>
+        </div>
+        <div class="day">
+            <div class="day-header">Monday</div>
+            <div id="monday-events"></div>
+        </div>
+        <div class="day">
+            <div class="day-header">Tuesday</div>
+            <div id="tuesday-events"></div>
+        </div>
+        <div class="day">
+            <div class="day-header">Wednesday</div>
+            <div id="wednesday-events"></div>
+        </div>
+        <div class="day">
+            <div class="day-header">Thursday</div>
+            <div id="thursday-events"></div>
+        </div>
+        <div class="day">
+            <div class="day-header">Friday</div>
+            <div id="friday-events"></div>
+        </div>
+        <div class="day">
+            <div class="day-header">Saturday</div>
+            <div id="saturday-events"></div>
+        </div>
+    </div>
+    <p>*Connect Groups are not listed, but a full schedule may be found <a href="https://mychampionlife.churchcenter.com/groups/clc-groups" style="color: #000080" target="_blank" rel="noopener">here.</a></p>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            addEvent("sunday-events", "9:00 AM", "Morning Service");
+            addEvent("sunday-events", "11:00 AM", "Morning Service");
+            addEvent("sunday-events", "6:00 PM", "Allegiant Youth Group");
+            addEvent("tuesday-events", "6:45 AM", "Zoom Prayer");
+            addEvent("wednesday-events", "6:30 AM", "Zoom Prayer");
+            addEvent("wednesday-events", "6:30 PM", "Prayer Service");
+            addEvent("saturday-events", "8:30 AM", "Prayer Service");
+        });
+
+        function addEvent(dayId, time, title) {
+            const dayColumn = document.getElementById(dayId);
+            const eventDiv = document.createElement("div");
+            eventDiv.className = "event";
+            eventDiv.textContent = `${time} - ${title}`;
+            dayColumn.appendChild(eventDiv);
+        }
+    </script>
+</body>
+</html>
