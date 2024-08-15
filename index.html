@@ -35,16 +35,17 @@
         }
 
         .day-header {
-            background-color: #757575;
+            background-color: #000080;
             color: white;
             padding: 5px;
             font-weight: bold;
+            font-size: 1.1rem;
             border-bottom: 1px solid #ddd;
             text-align: center;
         }
 
         .event {
-            color: #000080;
+            color: black;
             font-weight: bold;
             margin: 5px 0;
             text-align: left;
@@ -63,6 +64,7 @@
                 border: none;
                 border-bottom: 1px solid #ddd;
                 margin-bottom: 10px;
+                min-height: 125px;
             }
 
             .day-header {
@@ -106,13 +108,13 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            addEvent("sunday-events", "9:00 AM", "Morning Service");
+            addEvent("sunday-events", "09:00 AM", "Morning Service");
             addEvent("sunday-events", "11:00 AM", "Morning Service");
-            addEvent("sunday-events", "6:00 PM", "Allegiant Youth Group");
-            addEvent("tuesday-events", "6:45 AM", "Zoom Prayer");
-            addEvent("wednesday-events", "6:30 AM", "Zoom Prayer");
-            addEvent("wednesday-events", "6:30 PM", "Prayer Service");
-            addEvent("saturday-events", "8:30 AM", "Prayer Service");
+            addEvent("sunday-events", "06:00 PM", "Allegiant Youth Group");
+            // addEvent("tuesday-events", "6:45 AM", "Zoom Prayer");
+            // addEvent("wednesday-events", "6:30 AM", "Zoom Prayer");
+            addEvent("wednesday-events", "06:30 PM", "Prayer Service");
+            addEvent("saturday-events", "08:30 AM", "Prayer Service");
         });
 
         function addEvent(dayId, time, title) {
